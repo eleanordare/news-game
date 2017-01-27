@@ -1,0 +1,12 @@
+<html>
+  <head>
+    <title>{{ title }}</title>
+  </head>
+  <body>
+      <h1>News</h1>
+
+      {% for source in sourceList["sources"] %}
+        <li>{{ source["name"] }}</li>
+      {% endfor %}
+  </body>
+</html>
