@@ -1,4 +1,5 @@
 import urllib, urllib2
+from random import randint
 
 chosenSources = ["bbc-news",
                 "bloomberg",
@@ -13,7 +14,10 @@ chosenSources = ["bbc-news",
                 "the-washington-post",
                 "time"]
 
-def call_API():
-    url = 'https://newsapi.org/v1/sources?apiKey=066301c377dd44cfbe7558f92871ff1e'
+def retrieve():
+    apiKey = "066301c377dd44cfbe7558f92871ff1e"
+    source = chosenSources[randint(0,len(chosenSources)-1)]
+    sortBy = "top"
+    url = 'https://newsapi.org/v1/articles' + "?apiKey=" + apiKey + "&source=" + source + "&sortBy=" + sortBy
     response = urllib2.urlopen(url).read()
     return response

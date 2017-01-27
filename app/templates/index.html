@@ -5,8 +5,9 @@
   <body>
       <h1>News</h1>
 
-      {% for source in sourceList["sources"] %}
-        <li>{{ source["name"] }}</li>
+      {% for article in articles["articles"]  %}
+        <h2>{{ article["title"] }}</h2>
+        <p>{{ article["description"] }}</p>
       {% endfor %}
   </body>
 </html>

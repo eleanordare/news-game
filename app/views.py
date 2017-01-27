@@ -5,8 +5,8 @@ import json
 @app.route('/')
 @app.route('/index')
 def index():
-    sourceList = json.loads(collect.call_API())
-    print sourceList["status"]
+    articles = json.loads(collect.retrieve())
+    print articles["source"]
     return render_template('index.html',
                            title='Home',
-                           sourceList=sourceList)
+                           articles=articles)
