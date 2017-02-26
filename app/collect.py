@@ -1,4 +1,4 @@
-import urllib, urllib2
+import urllib, urllib2, json
 from random import randint
 
 chosenSources = ["bbc-news",
@@ -20,4 +20,11 @@ def retrieve():
     sortBy = "top"
     url = 'https://newsapi.org/v1/articles' + "?apiKey=" + apiKey + "&source=" + source + "&sortBy=" + sortBy
     response = urllib2.urlopen(url).read()
-    return response
+
+    articlesJSON = json.loads(response)
+    articlesList = articlesJSON["articles"]
+    article = articlesList[randint(0,len(articlesList)-1)]
+
+    print articlesJSON["source"]
+
+    return article
